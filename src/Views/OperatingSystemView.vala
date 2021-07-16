@@ -163,7 +163,7 @@ public class About.OperatingSystemView : Gtk.Grid {
         settings_restore_button.clicked.connect (settings_restore_clicked);
 
         bug_button.clicked.connect (() => {
-            var appinfo = new GLib.DesktopAppInfo ("io.elementary.feedback.desktop");
+            var appinfo = new GLib.DesktopAppInfo ("@elementary_feedback@/bin/io.elementary.feedback.desktop");
             if (appinfo != null) {
                 try {
                     appinfo.launch (null, null);
