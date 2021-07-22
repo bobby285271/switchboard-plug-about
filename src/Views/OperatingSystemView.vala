@@ -73,15 +73,11 @@ public class About.OperatingSystemView : Gtk.Grid {
             Environment.get_os_info (GLib.OsInfoKey.NAME),
             Environment.get_os_info (GLib.OsInfoKey.VERSION)
         );
-        
-        warning ("%s\n", GLib.OsInfoKey.PRETTY_NAME);
-        warning ("%s\n", GLib.OsInfoKey.NAME);
-        warning ("%s\n", GLib.OsInfoKey.VERSION);
-        
-        if (GLib.OsInfoKey.PRETTY_NAME[0:6] == "NixOS ") {
+
+        if (Environment.get_os_info (GLib.OsInfoKey.PRETTY_NAME)[0:6] == "NixOS ") {
             pretty_name = "<b>%s</b> %s".printf (
-                Environment.get_os_info (GLib.OsInfoKey.PRETTY_NAME[0:5]),
-                Environment.get_os_info (GLib.OsInfoKey.PRETTY_NAME[6:])
+                Environment.get_os_info (GLib.OsInfoKey.PRETTY_NAME)[0:5],
+                Environment.get_os_info (GLib.OsInfoKey.PRETTY_NAME)[6:]
             );
         }
 
