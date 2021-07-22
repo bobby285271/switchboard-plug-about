@@ -66,7 +66,8 @@ public class About.OperatingSystemView : Gtk.Grid {
 
         var logo_overlay = new Gtk.Overlay ();
         // logo_overlay.add (logo);
-        logo_overlay.add_overlay (icon);
+        // logo_overlay.add_overlay (icon);
+        logo_overlay.add (icon);
         
         var pretty_name = "<b>%s</b>".printf (
             Environment.get_os_info (GLib.OsInfoKey.PRETTY_NAME)
