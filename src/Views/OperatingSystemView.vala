@@ -69,20 +69,17 @@ public class About.OperatingSystemView : Gtk.Grid {
         // logo_overlay.add_overlay (icon);
         logo_overlay.add (icon);
         
-        var pretty_name;
+        var pretty_name = "<b>%s</b> %s".printf (
+            Environment.get_os_info (GLib.OsInfoKey.NAME),
+            Environment.get_os_info (GLib.OsInfoKey.VERSION)
+        );
         if (GLib.OsInfoKey.PRETTY_NAME[0:6] == "NixOS ") {
             pretty_name = "<b>%s</b> %s".printf (
                 Environment.get_os_info (GLib.OsInfoKey.PRETTY_NAME[0:5]),
                 Environment.get_os_info (GLib.OsInfoKey.PRETTY_NAME[6:])
             );
-        } else {
-            pretty_name = "<b>%s</b> %s".printf (
-                Environment.get_os_info (GLib.OsInfoKey.NAME),
-                Environment.get_os_info (GLib.OsInfoKey.VERSION)
-            );
         }
-        
-        
+
         var title = new Gtk.Label (pretty_name) {
             ellipsize = Pango.EllipsizeMode.END,
             margin_bottom = 12,
