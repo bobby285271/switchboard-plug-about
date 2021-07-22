@@ -65,14 +65,11 @@ public class About.OperatingSystemView : Gtk.Grid {
         icon_style_context.add_provider (style_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
 
         var logo_overlay = new Gtk.Overlay ();
-        logo_overlay.add (logo);
+        // logo_overlay.add (logo);
         logo_overlay.add_overlay (icon);
-
-        // Intentionally not using GLib.OsInfoKey.PRETTY_NAME here because we
-        // want more granular control over text formatting
-        var pretty_name = "<b>%s</b> %s".printf (
-            Environment.get_os_info (GLib.OsInfoKey.NAME),
-            Environment.get_os_info (GLib.OsInfoKey.VERSION)
+        
+        var pretty_name = "<b>%s</b>".printf (
+            Environment.get_os_info (GLib.OsInfoKey.PRETTY_NAME)
         );
 
         var title = new Gtk.Label (pretty_name) {
