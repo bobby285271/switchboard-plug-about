@@ -114,7 +114,7 @@ public class About.OperatingSystemView : Gtk.Grid {
         var bug_button = new Gtk.Button.with_label (_("Send Feedback"));
 
         Gtk.Button? update_button = null;
-        var appcenter_info = new GLib.DesktopAppInfo ("io.elementary.appcenter.desktop");
+        var appcenter_info = new GLib.DesktopAppInfo ("@appcenter@/bin/io.elementary.appcenter.desktop");
         if (appcenter_info != null) {
             update_button = new Gtk.Button.with_label (_("Check for Updates"));
             update_button.clicked.connect (() => {
@@ -162,7 +162,7 @@ public class About.OperatingSystemView : Gtk.Grid {
         settings_restore_button.clicked.connect (settings_restore_clicked);
 
         bug_button.clicked.connect (() => {
-            var appinfo = new GLib.DesktopAppInfo ("io.elementary.feedback.desktop");
+            var appinfo = new GLib.DesktopAppInfo ("@elementary_feedback@/bin/io.elementary.feedback.desktop");
             if (appinfo != null) {
                 try {
                     appinfo.launch (null, null);
