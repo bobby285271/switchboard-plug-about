@@ -47,7 +47,7 @@ public class About.OperatingSystemView : Gtk.Grid {
         };
         logo.set_image_load_func ((size) => {
             try {
-                return new Gdk.Pixbuf.from_file_at_scale ("/usr/share/backgrounds/elementaryos-default", -1, size, true);
+                return new Gdk.Pixbuf.from_file_at_scale ("@default_wallpaper@", -1, size, true);
             } catch (Error e) {
                 critical (e.message);
             }
